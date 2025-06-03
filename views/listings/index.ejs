@@ -1,0 +1,146 @@
+<% layout("/layouts/boilerplate") %>
+
+    <head>
+        <style>
+            .listing-link {
+                color: black;
+                text-decoration: none;
+            }
+
+            .listing-link:hover {
+                color: black;
+                /* Ensures hover doesn't turn blue */
+                text-decoration: none;
+            }
+
+            .card-body {
+                text-align: center;
+            }
+
+            #filters {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .filter {
+                margin-right: 1.5rem;
+                margin-top: 1.5rem;
+                text-align: center;
+                opacity: 0.7;
+            }
+
+            .filter:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+
+            .tax-info {
+                display: none;
+            }
+
+            .tax-toggle{
+                border: 1px solid black;
+                border-radius: 1rem;
+                height: 3rem;
+                padding: 1rem;
+                margin-left: 2rem;
+                display: flex;
+                align-items: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <br>
+        <!-- <h1>All Listings</h1> -->
+        <!-- <form action="/listings/new" method="GET">
+        <button>Create New Listing</button>
+    </form> -->
+        <div id="filters">
+            <div class="filter">
+                <div><i class="fa-solid fa-bolt"></i></i></div>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-microscope"></i></i></div>
+                <p>Equipments</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-hand"></i></div>
+                <p>General</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-circle-exclamation"></i></div>
+                <p>Authorized</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-biohazard"></i></i></div>
+                <p>Biohazard</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-radiation"></i></div>
+                <p>Radiative</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-dumpster-fire"></i></div>
+                <p>Flamable</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-location-crosshairs"></i></div>
+                <p>Out of Country</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-bacteria"></i></div>
+                <p>Bacteria</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-rupee-sign"></i></div>
+                <p>Expensive</p>
+            </div>
+            <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Display total after Taxes</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-2 mt-3">
+            <% for( let listing of allListing) { %>
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="card col listing-card">
+                        <% if (listing.image && listing.image.url) { %>
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %> image" />
+                            <% } else { %>
+                                <img src="/images/Default.png" class="card-img-top" alt="No image available" />
+                                <% } %>
+                                    <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><b>
+                                <%= listing.title %>
+                            </b></h5>
+                        <p class="card-text">
+                            &#8377;<%= listing.price.toLocaleString("en-In") %> 
+                        </p>
+                    </div>
+                </a>
+
+                <% } %>
+        </div>
+    </body>
+
+    <script>
+        let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+        taxSwitch.addEventListener("click", () => {
+            let taxInfo = document.getElementsByClassName("tax-info");
+            for (info of taxInfo) {
+                if (info.style.display != "inline") {
+                    info.style.display = "inline";
+                } else {
+                    info.style.display = "none";
+                }
+            }
+        });
+    </script>

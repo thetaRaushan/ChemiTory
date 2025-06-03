@@ -1,0 +1,61 @@
+<% layout("/layouts/boilerplate") %>
+
+    <br>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1>Add Listing of Chemicals/Equipments</h1>
+            <br>
+            <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Name</label>
+                    <input name="listing[title]" placeholder="Enter Name" type="text" class="form-control" required>
+                    <div class="valid-feedback">Done</div>
+                    <div class="invalid-feedback">Please Enter Chemical Name</div>
+               </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="Warehouse or Lab or Storage" type="text" class="form-control" required>
+                    <div class="valid-feedback">Done</div>
+                    <div class="invalid-feedback">Please Enter Location</div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input name="listing[quantity]" placeholder="Enter quntity in KG" type="Number" class="form-control" required>
+                    <div class="invalid-feedback">Please Enter Quantity</div>
+                </div>
+                
+                <div class="row">
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+                        <div class="invalid-feedback">Please Enter Country</div>
+                    </div>                    
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" placeholder="in ₹ " type="Number" class="form-control" required>
+                        <div class="invalid-feedback">Please Enter Price without Fraction</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input name="listing[image]" type="file" class="form-control">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please Enter Description</div>
+                </div>
+    
+                <br>
+                <button class="btn btn-dark add-btn">Add</button>
+            </form>
+        </div>
+    </div>
+
+
+        
+<br>
