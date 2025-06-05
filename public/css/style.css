@@ -1,0 +1,116 @@
+body {
+    font-family: "Nunito Sans" !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar{
+    height: 4rem;
+    background-color: aliceblue;
+}
+
+.fa-flask{
+    color: rgb(34, 14, 209);
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+/* Footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-social i{
+    margin: 0.5rem;
+    font-size: 1.2rem;
+}
+
+
+
+.f-info-links,
+.f-info-social,
+.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info{
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    background-color: rgb(209, 215, 213);
+}
+
+/* Cards */
+.listing-card{
+    border: none !important;
+    margin-bottom: 1rem;
+}
+
+
+
+.card-img-top{
+    border-radius: 1rem;
+    width: 10rem;
+    height: 15rem;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+    margin-bottom: 1.5rem;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.1;
+    background-color: black;
+}
+
+/* new page */
+.add-btn{
+    background-color: cornflowerblue !important;
+}
+/* edit page */
+.edt-btn{
+    background-color: cornflowerblue !important;
+}
+/* show page */
+.show-image{
+  width: 100%;       /* Scales with screen */
+  height: auto;      /* Maintains original aspect ratio */
+  max-width: 325px;
+}
+.btns{
+    display: flex;
+}
+.delete-btn{
+    background-color: red !important;
+}
+.btns .card-body .show-title{
+    text-align: center; !important
+    align-items: center; !important
+}
+
+/* review card */
+.r-card-body{
+    padding: 1rem; !important
+}
